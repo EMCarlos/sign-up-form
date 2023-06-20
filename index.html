@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up Form</title>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/tanya-layko-yf0d2ct9gL0-unsplash.jpg"
+    />
+    <script src="form.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside class="aside">
+        <p class="brand-name">emc<span>2 </span> project</p>
+        <!-- <img src="/images/pexels-ahmed-ツ-17037280.jpg" alt="sign-up-image" /> -->
+        <video
+          class="hero__video"
+          src="/images/pexels-skate-2.mp4"
+          autoplay=""
+          muted=""
+          loop=""
+        ></video>
+        <span
+          >Video by
+          <a
+            href="https://www.pexels.com/video/girl-in-overalls-riding-a-longboard-5026928/"
+            >cottonbro</a
+          >
+          on
+          <a href="https://www.pexels.com/">Pexels</a>
+        </span>
+        <a href="#btm" class="arrow">
+          <img
+            src="/images/Antu_arrow-right.svg"
+            alt="arrow-icon"
+            onclick="arrowOnClick()"
+          />
+        </a>
+      </aside>
+
+      <div class="form-container">
+        <h2>
+          This is not a real online service! You know you need something like
+          this in your life to help you realize your deepest dreams.
+          <p>Sign up <em>now</em> to get started.</p>
+        </h2>
+        <h2>You <em>know</em> you want to.</h2>
+
+        <form action="javascript:void(0);" method="post">
+          <h2>Let's do this!</h2>
+          <label for="first_name">first name</label>
+          <input
+            type="text"
+            name="first_name"
+            id="first_name"
+            placeholder="John"
+          />
+
+          <label for="last_name">last name</label>
+          <input
+            type="text"
+            name="last_name"
+            id="last_name"
+            placeholder="Doe"
+          />
+
+          <label for="email">email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="johndoe@example.com"
+          />
+
+          <label for="phone_number">phone number</label>
+          <input
+            type="tel"
+            name=""
+            id="phone_number"
+            pattern="[0-9]+"
+            placeholder="541112345678"
+          />
+
+          <label for="password">password</label>
+          <div class="password-container">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              oninput="strengthChecker()"
+            />
+            <span id="toggle" onclick="toggle()">
+              <i class="fas fa-eye"></i>
+            </span>
+            <div id="strength-bar"></div>
+          </div>
+
+          <label for="confirm_password">confirm password</label>
+
+          <div class="password-container">
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm_password"
+              oninput="checkPassword()"
+            />
+            <span id="toggle-confirm" onclick="toggleConfirm()">
+              <i class="fas fa-eye"></i>
+            </span>
+            <span class="error" id="error"></span>
+          </div>
+
+          <div class="divider"></div>
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

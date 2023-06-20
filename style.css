@@ -1,0 +1,312 @@
+@import url("https://fonts.upset.dev/css2?family=Libre+Baskerville&display=swap");
+
+:root {
+  --primary-color: #5c8984;
+  --secondary-color: #f2d8d8;
+  --text-color: #374259;
+  --complementary-color: #545b77;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--secondary-color);
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  background: var(--primary-color);
+  max-height: 100vh;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, auto));
+  animation: show 3s forwards;
+}
+
+.aside {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .aside > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100dvh;
+  z-index: 2;
+} */
+
+.aside > video {
+  object-fit: cover;
+  width: 100%;
+  height: 100dvh;
+  z-index: 2;
+}
+
+.brand-name {
+  font-family: "Libre Baskerville", serif;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  z-index: 3;
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.brand-name > span {
+  font-size: 14px;
+  position: relative;
+  z-index: 3;
+  top: -6px;
+  margin-right: 2px;
+  font-weight: 900;
+  color: var(--text-color);
+}
+
+.aside > span {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-align: center;
+  background: rgba(92, 137, 132, 0.5);
+  z-index: 3;
+}
+
+.aside > span > a {
+  color: var(--secondary-color);
+}
+
+.form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding-left: 40px;
+  width: 90%;
+  animation: 1.3s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideRight;
+  animation-delay: 0s;
+}
+
+.divider {
+  height: 1px;
+  width: 111%;
+  background-color: var(--complementary-color);
+  border-radius: 10px;
+  bottom: 0;
+  left: -40px;
+  margin: 20px 0;
+  position: relative;
+}
+
+a.arrow {
+  position: absolute;
+  bottom: 20px;
+  display: block;
+  animation: float 1s cubic-bezier(0.59, 0.575, 0.565, 1) infinite;
+  z-index: 3;
+  visibility: hidden;
+}
+
+a.arrow > img {
+  height: 50px;
+  width: 50px;
+  transform: rotate(90deg);
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+  width: 100%;
+}
+
+h2 {
+  line-height: 27px;
+}
+
+label {
+  margin: 12px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+input {
+  all: unset;
+  border: 1px solid var(--complementary-color);
+  background-color: rgba(55, 66, 89, 0.1);
+  width: auto;
+  height: 10px;
+  padding: 16px;
+  border-radius: 10px;
+  transition: all 300ms linear;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--complementary-color);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--complementary-color);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--complementary-color);
+}
+
+input:focus {
+  border: 1px solid var(--text-color);
+  caret-color: var(--secondary-color);
+}
+
+input:focus:invalid {
+  border: 1px solid #ee99ad;
+  background-color: rgba(253, 58, 105, 0.2);
+  caret-color: #ee99ad;
+}
+
+.password-container {
+  display: grid;
+  width: 100%;
+  position: relative;
+}
+
+.strength {
+  width: 25%;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  bottom: 10px;
+}
+
+#strength-bar {
+  background-color: var(--secondary-color);
+  height: 7px;
+  position: relative;
+  margin-top: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: all 300ms linear;
+}
+
+#toggle,
+#toggle-confirm {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  color: #808080;
+  cursor: pointer;
+}
+
+#toggle i,
+#toggle-confirm i {
+  font-size: 20px;
+}
+
+#error {
+  color: #ee99ad;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--text-color);
+  border-radius: 10px;
+  height: 42px;
+  width: 239px;
+  transition: all 400ms linear;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+    gap: 15px;
+    padding-left: 0;
+    width: auto;
+    padding: 20px;
+  }
+
+  a.arrow {
+    visibility: visible;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+    width: 100%;
+    overflow: hidden;
+  }
+
+  input {
+    width: auto;
+  }
+
+  button {
+    height: 39px;
+    width: 100%;
+  }
+}
